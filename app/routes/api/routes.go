@@ -2,7 +2,7 @@
  * Name : Okto Prima Jaya
  * GitHub : https://github.com/oktopriima
  * Email : octoprima93@gmail.com
- * Created At : 14/10/22, 14:35
+ * created at : 02/01/23, 09:46
  * Copyright (c) 2022
  */
 
@@ -11,14 +11,14 @@ package api
 import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"github.com/oktopriima/ninja/app/handler/API/users"
+	customMiddleware "github.com/oktopriima/gank/app/middleware"
 
 	"net/http"
 )
 
 func NewAPIRoutes(
 	e *echo.Echo,
-	userHandler users.BaseHandler,
+	authConfig *customMiddleware.AuthenticationMiddlewareConfig,
 ) {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -31,12 +31,4 @@ func NewAPIRoutes(
 			Message string
 		}{Message: "hello from motherffffff!!!!"})
 	})
-
-	{
-		userRoutes := route.Group("/user")
-		{
-			userInternal := userRoutes.Group("/internal")
-			userInternal.GET("", userHandler.SelfHandler)
-		}
-	}
 }

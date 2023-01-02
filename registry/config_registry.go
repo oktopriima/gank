@@ -2,7 +2,7 @@
  * Name : Okto Prima Jaya
  * GitHub : https://github.com/oktopriima
  * Email : octoprima93@gmail.com
- * Created At : 17/10/22, 10:01
+ * created at : 02/01/23, 09:46
  * Copyright (c) 2022
  */
 
@@ -10,7 +10,8 @@ package registry
 
 import (
 	"github.com/labstack/echo"
-	"github.com/oktopriima/ninja/config"
+	"github.com/oktopriima/gank/app/response"
+	"github.com/oktopriima/gank/config"
 	"go.uber.org/dig"
 )
 
@@ -32,6 +33,10 @@ func NewConfigRegistry(container *dig.Container) *dig.Container {
 	}
 
 	if err = container.Provide(config.NewDatabaseInstance); err != nil {
+		panic(err)
+	}
+
+	if err = container.Provide(response.NewHttpResponse); err != nil {
 		panic(err)
 	}
 

@@ -2,14 +2,14 @@
  * Name : Okto Prima Jaya
  * GitHub : https://github.com/oktopriima
  * Email : octoprima93@gmail.com
- * Created At : 14/10/22, 14:06
+ * created at : 02/01/23, 09:46
  * Copyright (c) 2022
  */
 
 package main
 
 import (
-	"github.com/oktopriima/ninja/config"
+	"github.com/oktopriima/gank/config"
 )
 
 func main() {

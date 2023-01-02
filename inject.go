@@ -2,14 +2,14 @@
  * Name : Okto Prima Jaya
  * GitHub : https://github.com/oktopriima
  * Email : octoprima93@gmail.com
- * Created At : 14/10/22, 14:11
+ * created at : 02/01/23, 09:46
  * Copyright (c) 2022
  */
 
 package main
 
 import (
-	"github.com/oktopriima/ninja/registry"
+	"github.com/oktopriima/gank/registry"
 	"go.uber.org/dig"
 )
 
@@ -18,6 +18,9 @@ func NewInjection() *dig.Container {
 
 	c = registry.NewConfigRegistry(c)
 	c = registry.NewHandlerRegistry(c)
+	c = registry.NewServiceRegistry(c)
+	c = registry.NewUsecaseRegistry(c)
+	c = registry.NewAddOnsRegistry(c)
 	c = registry.NewRouteRegistry(c)
 
 	return c

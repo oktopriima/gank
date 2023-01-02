@@ -2,27 +2,27 @@
  * Name : Okto Prima Jaya
  * GitHub : https://github.com/oktopriima
  * Email : octoprima93@gmail.com
- * Created At : 17/10/22, 10:07
+ * created at : 02/01/23, 09:46
  * Copyright (c) 2022
  */
 
 package config
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/gomodule/redigo/redis"
 	"go.mongodb.org/mongo-driver/mongo"
+	"gorm.io/gorm"
 )
 
 type databaseInstance struct {
-	mysql *sql.DB
+	mysql *gorm.DB
 	pool  *redis.Pool
 	mDb   *mongo.Database
 }
 
 type DatabaseInstance interface {
-	MySql() *sql.DB
+	MySql() *gorm.DB
 	Redis() *redis.Pool
 	MongoDb() *mongo.Database
 }
@@ -40,7 +40,7 @@ func NewDatabaseInstance(env Environment) DatabaseInstance {
 	return ins
 }
 
-func (d *databaseInstance) MySql() *sql.DB {
+func (d *databaseInstance) MySql() *gorm.DB {
 	return d.mysql
 }
 
