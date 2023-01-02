@@ -11,24 +11,35 @@ package api
 import (
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	customMiddleware "github.com/oktopriima/gank/app/middleware"
-
+	"github.com/oktopriima/gank/app/handler/API"
 	"net/http"
 )
 
 func NewAPIRoutes(
 	e *echo.Echo,
-	authConfig *customMiddleware.AuthenticationMiddlewareConfig,
+	user API.UserHandler,
 ) {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(middleware.CORS())
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		Skipper:       middleware.DefaultSkipper,
+		AllowOrigins:  []string{"*"},
+		AllowMethods:  []string{http.MethodGet, http.MethodHead, http.MethodPut, http.MethodPost, http.MethodDelete},
+		AllowHeaders:  []string{"*"},
+		ExposeHeaders: []string{"Authorization"},
+	}))
 
 	route := e.Group("api")
 
 	route.GET("/ping", func(context echo.Context) error {
 		return context.JSON(http.StatusOK, struct {
 			Message string
-		}{Message: "hello from motherffffff!!!!"})
+		}{Message: "all is good"})
 	})
+
+	{
+		userRoute := route.Group("/user")
+		userRoute.POST("/register", user.Register)
+	}
+
 }

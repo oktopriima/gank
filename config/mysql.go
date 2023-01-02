@@ -34,7 +34,9 @@ type MysqlConfig struct {
 	Debug    string `json:"debug"`
 }
 
-func NewMysqlConnector(param map[string]interface{}) (*gorm.DB, error) {
+func NewMysqlConnector(env Environment) (*gorm.DB, error) {
+	param := env.GetStringMap("mysql")
+
 	paramsByte, err := json.Marshal(param)
 	if err != nil {
 		return nil, err

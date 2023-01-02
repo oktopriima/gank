@@ -9,14 +9,14 @@
 package registry
 
 import (
-	"github.com/oktopriima/gank/app/middleware"
+	"github.com/oktopriima/gank/app/repository"
 	"go.uber.org/dig"
 )
 
-func NewAddOnsRegistry(container *dig.Container) *dig.Container {
+func NewRepositoryRegistry(container *dig.Container) *dig.Container {
 	var err error
 
-	if err = container.Provide(middleware.NewAuthenticationMiddlewareConfig); err != nil {
+	if err = container.Provide(repository.NewUserRepository); err != nil {
 		panic(err)
 	}
 

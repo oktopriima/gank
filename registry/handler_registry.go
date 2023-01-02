@@ -9,10 +9,16 @@
 package registry
 
 import (
+	"github.com/oktopriima/gank/app/handler/API"
 	"go.uber.org/dig"
 )
 
 func NewHandlerRegistry(container *dig.Container) *dig.Container {
+	var err error
+
+	if err = container.Provide(API.NewUserHandler); err != nil {
+		panic(err)
+	}
 
 	return container
 }

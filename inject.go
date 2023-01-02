@@ -17,10 +17,10 @@ func NewInjection() *dig.Container {
 	c := dig.New()
 
 	c = registry.NewConfigRegistry(c)
+	c = registry.NewModulesRegistry(c)
 	c = registry.NewHandlerRegistry(c)
-	c = registry.NewServiceRegistry(c)
+	c = registry.NewRepositoryRegistry(c)
 	c = registry.NewUsecaseRegistry(c)
-	c = registry.NewAddOnsRegistry(c)
 	c = registry.NewRouteRegistry(c)
 
 	return c

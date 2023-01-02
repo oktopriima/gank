@@ -10,7 +10,6 @@ package registry
 
 import (
 	"github.com/labstack/echo"
-	"github.com/oktopriima/gank/app/response"
 	"github.com/oktopriima/gank/config"
 	"go.uber.org/dig"
 )
@@ -32,11 +31,7 @@ func NewConfigRegistry(container *dig.Container) *dig.Container {
 		panic(err)
 	}
 
-	if err = container.Provide(config.NewDatabaseInstance); err != nil {
-		panic(err)
-	}
-
-	if err = container.Provide(response.NewHttpResponse); err != nil {
+	if err = container.Provide(config.NewMysqlConnector); err != nil {
 		panic(err)
 	}
 

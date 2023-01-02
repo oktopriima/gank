@@ -9,10 +9,16 @@
 package registry
 
 import (
+	"github.com/oktopriima/gank/app/usecase/API/users/register"
 	"go.uber.org/dig"
 )
 
 func NewUsecaseRegistry(container *dig.Container) *dig.Container {
+	var err error
+
+	if err = container.Provide(register.NewUsecase); err != nil {
+		panic(err)
+	}
 
 	return container
 }
