@@ -5,15 +5,9 @@ go 1.17
 require (
 	github.com/labstack/echo v3.3.10+incompatible
 	go.uber.org/dig v1.15.0
-)
-
-require (
 	go.elastic.co/apm/module/apmsql v1.15.0
 	gorm.io/driver/mysql v1.4.4
 	gorm.io/gorm v1.24.2
-)
-
-require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/elastic/go-licenser v0.3.1 // indirect
@@ -56,9 +50,6 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	howett.net/plist v0.0.0-20181124034731-591f970eefbb // indirect
-)
-
-require (
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/spf13/viper v1.13.0
 	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a
