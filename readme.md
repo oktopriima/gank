@@ -54,6 +54,11 @@ Start the server
   ./gank
 ```
 
+You can import the collection postman into your postman apps
+```bash
+GANK.postman_collection.json
+```
+
 ## Authors
 
 - [@oktopriima](https://www.github.com/oktopriima)
