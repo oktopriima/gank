@@ -20,5 +20,9 @@ func NewModulesRegistry(container *dig.Container) *dig.Container {
 		panic(err)
 	}
 
+	if err = container.Provide(modules.NewJwtModules); err != nil {
+		panic(err)
+	}
+
 	return container
 }

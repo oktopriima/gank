@@ -9,6 +9,7 @@
 package main
 
 import (
+	"github.com/oktopriima/gank/app/middleware"
 	"github.com/oktopriima/gank/registry"
 	"go.uber.org/dig"
 )
@@ -21,6 +22,12 @@ func NewInjection() *dig.Container {
 	c = registry.NewHandlerRegistry(c)
 	c = registry.NewRepositoryRegistry(c)
 	c = registry.NewUsecaseRegistry(c)
+
+	// custom class
+	if err := c.Provide(middleware.NewAuthenticateMiddleware); err != nil {
+		panic(err)
+	}
+
 	c = registry.NewRouteRegistry(c)
 
 	return c

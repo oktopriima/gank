@@ -20,5 +20,16 @@ func NewRepositoryRegistry(container *dig.Container) *dig.Container {
 		panic(err)
 	}
 
+	if err = container.Provide(repository.NewCartRepository); err != nil {
+		panic(err)
+	}
+
+	if err = container.Provide(repository.NewProductRepository); err != nil {
+		panic(err)
+	}
+
+	if err = container.Provide(repository.NewOrderRepository); err != nil {
+		panic(err)
+	}
 	return container
 }

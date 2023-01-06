@@ -16,4 +16,5 @@ import (
 
 type UserOutport interface {
 	Create(db *gorm.DB, user *models.User, ctx context.Context) error
+	FindBy(db *gorm.DB, user models.UserParams, ctx context.Context) (*models.User, error)
 }

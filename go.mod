@@ -3,13 +3,19 @@ module github.com/oktopriima/gank
 go 1.17
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/jinzhu/copier v0.3.5
 	github.com/labstack/echo v3.3.10+incompatible
-	go.uber.org/dig v1.15.0
+	github.com/spf13/viper v1.13.0
 	go.elastic.co/apm/module/apmsql v1.15.0
+	go.uber.org/dig v1.15.0
+	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a
 	gorm.io/driver/mysql v1.4.4
 	gorm.io/gorm v1.24.2
+)
+
+require (
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/elastic/go-licenser v0.3.1 // indirect
 	github.com/elastic/go-sysinfo v1.1.1 // indirect
 	github.com/elastic/go-windows v1.0.0 // indirect
@@ -20,6 +26,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901 // indirect
+	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
@@ -50,7 +57,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	howett.net/plist v0.0.0-20181124034731-591f970eefbb // indirect
-	github.com/labstack/gommon v0.4.0 // indirect
-	github.com/spf13/viper v1.13.0
-	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a
 )

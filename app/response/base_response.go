@@ -9,6 +9,6 @@
 package response
 
 type BaseResponse struct {
-	Data         interface{} `json:"data"`
+	Data         interface{} `json:"data,omitempty"`
 	ErrorMessage string      `json:"error_message,omitempty"`
 }

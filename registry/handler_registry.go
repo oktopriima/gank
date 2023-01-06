@@ -20,5 +20,17 @@ func NewHandlerRegistry(container *dig.Container) *dig.Container {
 		panic(err)
 	}
 
+	if err = container.Provide(API.NewCartHandler); err != nil {
+		panic(err)
+	}
+
+	if err = container.Provide(API.NewProductHandler); err != nil {
+		panic(err)
+	}
+
+	if err = container.Provide(API.NewOrderHandler); err != nil {
+		panic(err)
+	}
+
 	return container
 }
