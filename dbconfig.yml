@@ -1,5 +1,0 @@
-dev:
-  dialect: mysql
-  datasource: root:sapi@tcp(localhost:3306)/gank?parseTime=true
-  dir: database/migrations/
-  table: migrations
