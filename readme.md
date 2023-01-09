@@ -38,6 +38,8 @@ Migrate database
   # adjust the database connection
 
   sql-migrate up --env=dev
+  
+  # or you can import the database gank.sql directly into your local database
 ```
 
 Install dependencies
@@ -57,6 +59,19 @@ Start the server
 You can import the collection postman into your postman apps
 ```bash
 GANK.postman_collection.json
+```
+
+Docker setup
+```bash
+# update env.yaml change the mysql part
+# build the docker images
+docker build -t gank .
+
+# run your application
+docker run -d gank 
+
+# check docker ip for golang container
+# change HOST on postman environment from localhost to docker IP
 ```
 
 ## Authors
